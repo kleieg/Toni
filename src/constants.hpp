@@ -38,6 +38,7 @@ enum class levelType : uint8_t {
 inline constexpr int getLevel(levelType t, level l) { return (l == level::inactive) ? (t == levelType::activeHigh ? LOW : HIGH)
                                                                                     : (t == levelType::activeHigh ? HIGH : LOW); }
 
+
 #ifdef TonUINO_Classic
 // ####### buttons #####################################
 
@@ -51,7 +52,8 @@ inline constexpr uint8_t   buttonFourPin   = A3;
 inline constexpr uint8_t   buttonFivePin   = A4;
 #endif
 
-inline constexpr levelType buttonPinType   = levelType::activeLow;
+//inline constexpr levelType buttonPinType   = levelType::activeLow;
+inline constexpr levelType buttonPinType   = levelType::activeHigh;
 inline constexpr uint32_t  buttonDbTime    = 25; // Debounce time in milliseconds (default 25ms)
 
 // ####### chip_card ###################################

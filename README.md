@@ -1,37 +1,8 @@
-# TonUINO
-Die DIY Musikbox (nicht nur) für Kinder
-
-# Anleitung zum Compilieren
-
-Allgemeine Anleitungen zum Einrichten der IDE findet man hier [www.tonuino.de/TNG](https://www.tonuino.de/TNG) und hier [www.leiterkartenpiraten.de](https://www.leiterkartenpiraten.de)
-
-## Arduino IDE
-- Bei der classic und AiO HW Variante muss die Datei 'platform.local.txt' in den avr HW Ordner kopiert werden. Dieser Ordner ist gewöhnlich folgender:
-```
-  Windows:
-    Classic:  C:\Users\<Benutzer>\AppData\Local\Arduino15\packages\arduino\hardware\avr\1.8.6
-    AiO:      C:\Users\<Benutzer>\AppData\Local\Arduino15\packages\LGT8fx Boards\hardware\avr\1.0.7
-
-  Linux:
-    Classic:  ~/.arduino15/packages/arduino/hardware/avr/1.8.6
-    Aio:      ~/.arduino15/packages/LGT8fx Boards/hardware/avr/1.0.7
-
-  MacOS 13.1:
-    Classic:  /Applications/Arduino.app/Contents/Java/arduino/hardware/avr
-    AiO:      /Applications/Arduino.app/Contents/Java/LGT8fx Boards/hardware/avr
-```
-- Man findet den Ordner auch, wenn man die Datei platform.txt sucht. 
-
-- Für die AiOplus HW Variante sind keine Änderungen notwendig
-
-## platform.io
-- geht out-of-the-box
-
-# Installation
-
-Die SD Karte (Ordner mp3 und advert) hat sich gegenüber der Version 2.x geändert. Hier kann man die Dateien downloaden: [www.tonuino.de/TNG](https://www.tonuino.de/TNG)
 
 # Change Log
+
+## 11.02.23
+in constants.hpp Zeile 56 levelType::activeHigh; anstelle von activeLow zur Anpassung an Sensortasten.
 
 ## Version 3.1.2 (04.02.2023)
 - [Issue 054](https://github.com/tonuino/TonUINO-TNG/issues/54): For classic variant: the shutdownPin should be HIGH on shutdown for the POLOLU switch
