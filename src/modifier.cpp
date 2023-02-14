@@ -79,25 +79,3 @@ bool RepeatSingleModifier::handlePrevious() {
   return handleNext();
 }
 
-//bool FeedbackModifier::handleVolumeDown() {
-//  if (volume > settings.minVolume) {
-//    playAdvertisement(volume - 1, false);
-//  } else {
-//    playAdvertisement(volume, false);
-//  }
-//  LOG(modifier_log, s_info, F("FeedbackModifier::handleVolumeDown()!"));
-//  return false;
-//}
-//bool FeedbackModifier::handleVolumeUp() {
-//  if (volume < settings.maxVolume) {
-//    playAdvertisement(volume + 1, false);
-//  } else {
-//    playAdvertisement(volume, false);
-//  }
-//  LOG(modifier_log, s_info, F("FeedbackModifier::handleVolumeUp()!"));
-//  return false;
-//}
-//bool FeedbackModifier::handleRFID(const nfcTagObject &/*newCard*/) {
-//  LOG(modifier_log, s_info, F("FeedbackModifier::handleRFID()"));
-//  return false;
-//}

@@ -13,18 +13,12 @@ Buttons::Buttons()
 , buttonPause(buttonPausePin, buttonDbTime, buttonPinIsActiveLow, buttonPinIsActiveLow)
 , buttonUp   (buttonUpPin   , buttonDbTime, buttonPinIsActiveLow, buttonPinIsActiveLow)
 , buttonDown (buttonDownPin , buttonDbTime, buttonPinIsActiveLow, buttonPinIsActiveLow)
-#ifdef FIVEBUTTONS
-, buttonFour (buttonFourPin , buttonDbTime, buttonPinIsActiveLow, buttonPinIsActiveLow)
-, buttonFive (buttonFivePin , buttonDbTime, buttonPinIsActiveLow, buttonPinIsActiveLow)
-#endif
+
 {
   buttonPause.begin();
   buttonUp   .begin();
   buttonDown .begin();
-#ifdef FIVEBUTTONS
-  buttonFour .begin();
-  buttonFive .begin();
-#endif
+
 }
 
 commandRaw Buttons::getCommandRaw() {
@@ -93,29 +87,6 @@ commandRaw Buttons::getCommandRaw() {
       ret = commandRaw::downLongRepeat;
   }
 
-#ifdef FIVEBUTTONS
-  else if (buttonFour.wasReleased() && not ignoreRelease) {
-    ret = commandRaw::four;
-  }
-
-  else if (buttonFour.pressedFor(longPressFactor * buttonLongPress)) {
-    if (longPressFactor == 1)
-      ret = commandRaw::fourLong;
-    else
-      ret = commandRaw::fourLongRepeat;
-  }
-
-  else if (buttonFive.wasReleased() && not ignoreRelease) {
-    ret = commandRaw::five;
-  }
-
-  else if (buttonFive.pressedFor(longPressFactor * buttonLongPress)) {
-    if (longPressFactor == 1)
-      ret = commandRaw::fiveLong;
-    else
-      ret = commandRaw::fiveLongRepeat;
-  }
-#endif
 
   switch (ret) {
   case commandRaw::pauseLong     :
@@ -123,12 +94,7 @@ commandRaw Buttons::getCommandRaw() {
   case commandRaw::upLongRepeat  :
   case commandRaw::downLong      :
   case commandRaw::downLongRepeat:
-#ifdef FIVEBUTTONS
-  case commandRaw::fourLong      :
-  case commandRaw::fourLongRepeat:
-  case commandRaw::fiveLong      :
-  case commandRaw::fiveLongRepeat:
-#endif
+
                                    ++longPressFactor;
                                    ignoreRelease = true;
                                    break;
@@ -145,10 +111,6 @@ bool Buttons::isNoButton() {
   return not buttonPause.isPressed()
       && not buttonUp   .isPressed()
       && not buttonDown .isPressed()
-#ifdef FIVEBUTTONS
-      && not buttonFour .isPressed()
-      && not buttonFive .isPressed()
-#endif
       ;
 }
 
@@ -163,8 +125,4 @@ void Buttons::readButtons() {
   buttonPause.read();
   buttonUp   .read();
   buttonDown .read();
-#ifdef FIVEBUTTONS
-  buttonFour .read();
-  buttonFive .read();
-#endif
 }

@@ -22,10 +22,7 @@ private:
   Button buttonPause;
   Button buttonUp   ;
   Button buttonDown ;
-#ifdef FIVEBUTTONS
-  Button  buttonFour;
-  Button  buttonFive;
-#endif
+
   bool ignoreRelease     = false;
   bool ignoreAll         = false;
 
